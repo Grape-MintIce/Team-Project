@@ -1,0 +1,20 @@
+# Keil MDK 垃圾文件
+*.o
+*.d
+*.crf
+*.dep
+*.map
+*.htm
+*.lnp
+*.axf
+*.iex
+*.build_log.htm
+*.bak
+JLinkLog.txt
+*.scvd
+
+# CubeMX 调试目录
+/MDK-ARM/Debug/
+/MDK-ARM/Release/
+/MDK-ARM/RTE/
+*.uvguix.*
