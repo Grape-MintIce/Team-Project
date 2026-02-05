@@ -22,7 +22,7 @@
 #include "cmsis_os.h"
 #include "tim.h"
 #include "gpio.h"
-
+#include "arm_kinematics.h" 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -69,7 +69,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
+  MX_TIM4_Init(); // 确保这个在 Arm_Init 之前
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -161,6 +161,29 @@ int main(void)
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
+	/* USER CODE BEGIN 2 */
+  
+  // 1. 初始化机械臂
+  Arm_Init(); 
+  HAL_Delay(1000); // 等待舵机归中稳定
+
+  // 2. 【快速瞬移】到准备点 (方块正上方 15cm)
+  // 使用 Instant 函数，直接到位，不用插补
+  Arm_Set_Pose_Instant(0, 150, 150); 
+  HAL_Delay(1000);
+
+  // 3. 【慢动作】慢慢伸下去抓 (耗时 1000ms)
+  // 假设要去的位置是 (0, 150, 30)
+  Arm_Move_Line(0, 150, 30, 1000); 
+  
+  // 4. 【慢动作】闭合爪子
+  Arm_Claw_Control(0);
+  HAL_Delay(800); 
+
+  // 5. 【慢动作】慢慢提起来
+  Arm_Move_Line(0, 150, 150, 1000);
+
+  /* USER CODE END 2 */
   /* USER CODE BEGIN WHILE */
   while (1)
   {

@@ -437,6 +437,16 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f4xx_hal_timebase_tim.c</FilePath>
             </File>
+            <File>
+              <FileName>arm_kinematics.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\arm_kinematics.h</FilePath>
+            </File>
+            <File>
+              <FileName>arm_kinematics.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\arm_kinematics.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
