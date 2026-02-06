@@ -121,30 +121,6 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartChassisTask */
-void StartChassisTask(void const * argument)
-{
-  /* USER CODE BEGIN StartChassisTask */
-  
-  // 给定一个测试速度 (50% 油门)
-  int pwm_val = 2100; 
-
-  for(;;)
-  {
-    // 1. 设置方向 (全部正转)
-    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_2, GPIO_PIN_SET);   // AIN1
-    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_3, GPIO_PIN_RESET); // AIN2
-    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_4, GPIO_PIN_SET);   // BIN1
-    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5, GPIO_PIN_RESET); // BIN2
-
-    // 2. 刷新油门
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, pwm_val);
-    __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, pwm_val);
-
-    // 3. 心跳延时
-    osDelay(10);
-  }
-  /* USER CODE END StartChassisTask */
-}
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */

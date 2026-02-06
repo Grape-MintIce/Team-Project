@@ -26,5 +26,11 @@ extern Motor_t motor_R;
 // 函数声明
 void Motor_Init(void);
 void Motor_Update(void);
+// ... 原有的代码 ...
+
+// 【新增】供外部任务调用的接口声明
+void Set_Motor_PWM(int16_t pwm_l, int16_t pwm_r);
+float Get_Speed_L(void);
+float Get_Speed_R(void);
 
 #endif

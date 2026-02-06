@@ -77,3 +77,34 @@ void Motor_Update(void) {
     Set_PWM(&motor_L, out_L);
     Set_PWM(&motor_R, out_R);
 }
+// ============================================================
+// 【新增】适配层代码：将新任务的调用转发给你的结构体对象
+// ============================================================
+
+// 1. 速度控制接口
+void Set_Motor_PWM(int16_t pwm_l, int16_t pwm_r) {
+    // 调用你原本写好的静态函数 Set_PWM
+    // 注意：这里的 motor_L 和 motor_R 是你文件头部定义的全局变量
+    Set_PWM(&motor_L, (float)pwm_l);
+    Set_PWM(&motor_R, (float)pwm_r);
+}
+
+// 2. 左轮速度读取接口
+float Get_Speed_L(void) {
+    // 从左轮的定时器句柄中读取计数
+    int16_t count = (int16_t)__HAL_TIM_GET_COUNTER(motor_L.enc_tim);
+    __HAL_TIM_SET_COUNTER(motor_L.enc_tim, 0); // 清零
+
+    // 简单转换：假设 1560线/圈，半径 0.0325m，周期 5ms (0.005s)
+    // Speed = count / PPR * 周长 / 时间
+    return (float)count / 1560.0f * (2.0f * 3.14159f * 0.0325f) / 0.005f;
+}
+
+// 3. 右轮速度读取接口
+float Get_Speed_R(void) {
+    int16_t count = (int16_t)__HAL_TIM_GET_COUNTER(motor_R.enc_tim);
+    __HAL_TIM_SET_COUNTER(motor_R.enc_tim, 0); 
+    
+    // 右轮如果反装，可能需要加负号： return -(float)count ...
+    return (float)count / 1560.0f * (2.0f * 3.14159f * 0.0325f) / 0.005f;
+}
