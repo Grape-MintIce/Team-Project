@@ -2,6 +2,7 @@
 #include "mpu6050.h"   // 记得引用你自己写的 mpu6050 库
 #include "motor.h"     // 引用 motor 库以读取速度
 #include "math.h"
+#include "cmsis_os.h"
 
 // 全局坐标变量 (外部可读)
 // 初始状态：在 A 区中心 (0.25, 0.25)，车头朝 X 轴 (0弧度)
