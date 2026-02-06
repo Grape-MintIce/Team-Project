@@ -96,31 +96,7 @@ int main(void)
   MX_TIM4_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-// 1. 开启 TIM1 的 PWM 输出 (核心！没有这句车不动)
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1); // 开启左轮 PWM (PE9)
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2); // 开启右轮 PWM (PE11)
-  
-  // 2. 对于高级定时器 TIM1，有时候需要这一句主输出使能 (保险起见加上)
-  __HAL_TIM_MOE_ENABLE(&htim1);
-	
-	/* USER CODE BEGIN 2 */
-/* USER CODE BEGIN 2 */
 
-  // ==========================================================
-  // 【核弹级配置】直接操作寄存器，不给单片机任何犹豫的机会
-  // ==========================================================
-
-  // 1. 开启时钟 (确保有电)
-  __HAL_RCC_GPIOE_CLK_ENABLE();
-  __HAL_RCC_TIM1_CLK_ENABLE();
-
-  // 2. 暴力配置 PE9/PE11 为复用模式 (AF1 -> TIM1)
-  // PE9
-  GPIOE->MODER  &= ~(3UL << 18); GPIOE->MODER  |= (2UL << 18);
-  GPIOE->AFR[1] &= ~(0xFUL << 4); GPIOE->AFR[1] |= (1UL << 4);
-  // PE11
-  GPIOE->MODER  &= ~(3UL << 22); GPIOE->MODER  |= (2UL << 22);
-  GPIOE->AFR[1] &= ~(0xFUL << 12); GPIOE->AFR[1] |= (1UL << 12);
   // 高速模式
   GPIOE->OSPEEDR |= (3UL << 18) | (3UL << 22);
 

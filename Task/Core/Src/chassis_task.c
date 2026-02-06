@@ -46,7 +46,13 @@ void StartChassisTask(void const * argument) {
     PID_DSP_Init(&pid_spd_R, 2.0f, 0.1f, 0.0f, 1000.0f);
     // 航向环: P=5.0 (发现偏了猛回正)
     PID_DSP_Init(&pid_yaw,   5.0f, 0.0f, 0.0f, 200.0f);
+	// 1. 开启 PWM 通道
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
 
+    // 2. 【关键】TIM1 是高级定时器，必须开启“主输出使能”(MOE)
+    // 没有这句，TIM1 这种高级定时器只会计数，不会给引脚发波！
+    __HAL_TIM_MOE_ENABLE(&htim1);
     for(;;) {
         if (g_is_moving) {
             // --- A. 轨迹计算 ---
