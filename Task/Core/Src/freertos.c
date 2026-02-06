@@ -127,16 +127,7 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartChassisTask */
-void StartChassisTask(void const * argument)
-{
-  /* USER CODE BEGIN StartChassisTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartChassisTask */
-}
+
 
 /* USER CODE BEGIN Header_StartMissionTask */
 /**
@@ -145,16 +136,6 @@ void StartChassisTask(void const * argument)
 * @retval None
 */
 /* USER CODE END Header_StartMissionTask */
-void StartMissionTask(void const * argument)
-{
-  /* USER CODE BEGIN StartMissionTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END StartMissionTask */
-}
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
