@@ -452,6 +452,11 @@
               <FileType>1</FileType>
               <FilePath>..\Core\Src\arm_kinematics.c</FilePath>
             </File>
+            <File>
+              <FileName>mission_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\mission_task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
