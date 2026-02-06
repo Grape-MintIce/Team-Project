@@ -397,6 +397,61 @@
               <FileType>1</FileType>
               <FilePath>..\Core\Src\mpu6050.c</FilePath>
             </File>
+            <File>
+              <FileName>pid_dsp.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\pid_dsp.h</FilePath>
+            </File>
+            <File>
+              <FileName>pid_dsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\pid_dsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ins_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\ins_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>ins_task.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\ins_task.h</FilePath>
+            </File>
+            <File>
+              <FileName>path_planner.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\path_planner.h</FilePath>
+            </File>
+            <File>
+              <FileName>chassis_task.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\chassis_task.h</FilePath>
+            </File>
+            <File>
+              <FileName>mission_task.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\mission_task.h</FilePath>
+            </File>
+            <File>
+              <FileName>path_planner.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\path_planner.c</FilePath>
+            </File>
+            <File>
+              <FileName>chassis_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\chassis_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>arm_kinematics.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\arm_kinematics.h</FilePath>
+            </File>
+            <File>
+              <FileName>arm_kinematics.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\arm_kinematics.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -695,6 +750,11 @@
                 </FileArmAds>
               </FileOption>
             </File>
+            <File>
+              <FileName>mission_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mission_task.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -761,6 +821,9 @@
               <FilePath>../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>New Group</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>
