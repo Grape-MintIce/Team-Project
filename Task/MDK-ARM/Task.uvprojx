@@ -564,6 +564,11 @@
           <GroupName>Drivers/STM32F4xx_HAL_Driver</GroupName>
           <Files>
             <File>
+              <FileName>mission_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mission_task.c</FilePath>
+            </File>
+            <File>
               <FileName>stm32f4xx_hal_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c</FilePath>
@@ -749,11 +754,6 @@
                   </Cads>
                 </FileArmAds>
               </FileOption>
-            </File>
-            <File>
-              <FileName>mission_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mission_task.c</FilePath>
             </File>
           </Files>
         </Group>

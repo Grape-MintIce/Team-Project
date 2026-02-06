@@ -51,6 +51,7 @@
 
 /* USER CODE END Variables */
 osThreadId ChassisTaskHandle;
+osThreadId MissionTaskHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -58,6 +59,7 @@ osThreadId ChassisTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartChassisTask(void const * argument);
+void StartMissionTask(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -105,8 +107,12 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of ChassisTask */
-  osThreadDef(ChassisTask, StartChassisTask, osPriorityNormal, 0, 1024);
+  osThreadDef(ChassisTask, StartChassisTask, osPriorityHigh, 0, 1024);
   ChassisTaskHandle = osThreadCreate(osThread(ChassisTask), NULL);
+
+  /* definition and creation of MissionTask */
+  osThreadDef(MissionTask, StartMissionTask, osPriorityNormal, 0, 1024);
+  MissionTaskHandle = osThreadCreate(osThread(MissionTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -121,6 +127,34 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartChassisTask */
+void StartChassisTask(void const * argument)
+{
+  /* USER CODE BEGIN StartChassisTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartChassisTask */
+}
+
+/* USER CODE BEGIN Header_StartMissionTask */
+/**
+* @brief Function implementing the MissionTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartMissionTask */
+void StartMissionTask(void const * argument)
+{
+  /* USER CODE BEGIN StartMissionTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartMissionTask */
+}
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
