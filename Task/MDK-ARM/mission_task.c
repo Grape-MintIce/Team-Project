@@ -21,6 +21,7 @@ Point2D P_Control_Right = {1.5f, 0.5f}; // 向右绕
 void StartMissionTask(void const * argument) {
     osDelay(3000); // 上电等待 IMU 校准和机械臂归位
     Arm_Init();    // 机械臂复位
+	osDelay(2000); // 多等2秒，看见机械臂动了之后赶紧撤离！
 
     // ================= 任务 1: A -> B (S形) =================
     // 假设用简单的 S 形控制点: 起点前方和终点后方
