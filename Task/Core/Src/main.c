@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "i2c.h"
 #include "tim.h"
 #include "gpio.h"
 
@@ -92,6 +93,8 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
 // 1. 开启 TIM1 的 PWM 输出 (核心！没有这句车不动)
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1); // 开启左轮 PWM (PE9)
@@ -148,7 +151,6 @@ int main(void)
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
   HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL);
 
-  /* USER CODE END 2 */
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

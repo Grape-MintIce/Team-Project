@@ -121,11 +121,6 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartChassisTask */
-// 记得在最上面加：
-// #include "main.h"
-// #include "tim.h"
-// #include "gpio.h"
-
 void StartChassisTask(void const * argument)
 {
   /* USER CODE BEGIN StartChassisTask */
